@@ -1,0 +1,113 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --foreground-rgb: 0, 0, 0;
+  --background-start-rgb: 214, 219, 220;
+  --background-end-rgb: 255, 255, 255;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --foreground-rgb: 255, 255, 255;
+    --background-start-rgb: 0, 0, 0;
+    --background-end-rgb: 0, 0, 0;
+  }
+}
+
+body {
+  color: rgb(var(--foreground-rgb));
+  background: linear-gradient(
+      to bottom,
+      transparent,
+      rgb(var(--background-end-rgb))
+    )
+    rgb(var(--background-start-rgb));
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+
+/* Definir la animación */
+@keyframes aparecer {
+  from {
+      opacity: 0;
+  }
+  to {
+      opacity: 1;
+  }
+}
+
+/*Estilos para las opciones de la table"*/
+.opciones-container {
+  position: relative;
+  width: 100%;
+}
+
+/* Estilos para el icono */
+.opciones-container .icono {
+  cursor: pointer;
+  font-size: 20px;
+  width: 14%;
+
+}
+
+.opciones {
+  display: none;
+  position: absolute;
+  background-color: white;
+  border: 1px solid #ccc;
+  padding: 5px;
+  width: 90%; /* Ancho deseado */
+  z-index: 1000;
+  animation: aparecer 0.3s ease forwards; /* Aplicar la animación */
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.3); 
+}
+
+.opciones.mostrar {
+  display: block;
+}
+
+.opciones button{
+  width: 100%;
+  padding: 4% 3%;
+  font-weight: bold;
+}
+
+.opciones button:hover {
+  background-color: #c1bcbc91; /* Color de fondo al hacer hover */
+}
+
+
+
+.diagonal-clip {
+  clip-path: polygon(0% 0%, 100% 0%, 100% 100%);
+  z-index: 5;
+}
+
+
+/*Estilos del Scroll para la tabla"*/
+.ScrollTable::-webkit-scrollbar {
+  width: 6px; /* Ancho de la barra de desplazamiento */
+}
+
+.ScrollTable::-webkit-scrollbar-track {
+  background: #f1f1f1; /* Color del fondo del track de la barra de desplazamiento */
+  border-radius: 10px; /* Borde redondeado del track */
+}
+
+.ScrollTable::-webkit-scrollbar-thumb {
+  background: #00314D; /* Color del thumb de la barra de desplazamiento */
+  border-radius: 10px; /* Borde redondeado del thumb */
+}
+
+.ScrollTable::-webkit-scrollbar-thumb:hover {
+  background: #076ca7; /* Color del thumb al pasar el mouse */
+}
+
+
+
